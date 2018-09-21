@@ -11,10 +11,10 @@ import numpy as np
 from sklearn.metrics import recall_score
 import glob 
 
-ImageTest = glob.glob('Test/*.png')
+ImageTest = glob.glob('SamplesTestView/Train/Images/*.png')
 #ImagesLabel = glob.glob('SamplesTestView/Test/Labels/*.png')
 
-#y_all_train = np.zeros((len(ImageTest), 256, 256, 1))
+y_all_train = np.zeros((len(ImageTest), 256, 256, 1))
 
 #for i, imageFile in enumerate(ImageTest):
  #   label = imageio.imread(ImagesLabel[i])
@@ -31,16 +31,15 @@ FN = 0
 
 #val_y = y_all_train
 
-save_dir = './'
+save_dir = 'Result/'
 
 for i, imageFile in enumerate(ImageTest):
     
     image = imageio.imread(imageFile)
-    folder_1, folder_2, folder_3, imageName = imageFile.split("/")
-
-    image = np.reshape(image, (1, 256, 256, 3)) 
+    folder_1,folder_2,folder_3, imageName = imageFile.split("/")
+    image = np.reshape(image, (1, 256, 256, 3))
     image = image / 255.
-
+   
     result = model.predict([image, np.ones((1, 256, 256, 1))])
     result = np.round(result)
     
@@ -49,18 +48,18 @@ for i, imageFile in enumerate(ImageTest):
 #    current_FP = np.count_nonzero(result * (val_y[i, :, :, :] - 1))
 #    current_FN = np.count_nonzero((result - 1) * val_y[i, :, :, :])
 
- #   TP = TP + current_TP
- #   TN = TN + current_TN
- #   FP = FP + current_FP
- #   FN = FN + current_FN
+#    TP = TP + current_TP
+#    TN = TN + current_TN
+#    FP = FP + current_FP
+#    FN = FN + current_FN
     
- #   total = current_TP + current_TN + current_FP + current_FN
+#    total = current_TP + current_TN + current_FP + current_FN
     
- #   print('Total number: %d'  %(total))
- #   print('Acc: %f'  %((current_TP + current_TN) / total))
+#    print('Total number: %d'  %(total))
+#    print('Acc: %f'  %((current_TP + current_TN) / total))
     
     result_image = save_dir + imageName
-    
+    print (result_image)
     imageio.imsave(result_image, result[0, :, :, 0])
 
 
