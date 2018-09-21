@@ -11,7 +11,7 @@ import numpy as np
 from sklearn.metrics import recall_score
 import glob 
 
-ImageTest = glob.glob('test/*.jpg')
+ImageTest = glob.glob('Test/*.png')
 #ImagesLabel = glob.glob('SamplesTestView/Test/Labels/*.png')
 
 #y_all_train = np.zeros((len(ImageTest), 256, 256, 1))
