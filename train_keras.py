@@ -117,7 +117,7 @@ train_x = x_all_train
 val_x = x_all_val
 train_y = y_all_train
 val_y = y_all_val
-epochs = 300
+epochs = 1000
 n = 30
 x = 0
 
