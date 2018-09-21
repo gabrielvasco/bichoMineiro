@@ -10,11 +10,11 @@ import imageio
 import numpy as np
 
 
-ImagesTrain = glob.glob('SamplesTestView/Train/Images/*.png')
-LabelsTrain = glob.glob('SamplesTestView/Train/Labels/*.png')
+ImagesTrain = glob.glob('SamplesTestView/Train/Images/*.jpg')
+LabelsTrain = glob.glob('SamplesTestView/Train/Labels/*.jpg')
 
-ImagesVal = glob.glob('SamplesTestView/Validation/Images/*.png')
-LabelsVal = glob.glob('SamplesTestView/Validation/Labels/*.png')
+ImagesVal = glob.glob('SamplesTestView/Validation/Images/*.jpg')
+LabelsVal = glob.glob('SamplesTestView/Validation/Labels/*.jpg')
 
 print(ImagesTrain[37] + ' == '+ LabelsTrain[37])
 print('This ^ should be the same.')
