@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 12 22:13:54 2018
@@ -10,11 +11,11 @@ import imageio
 import numpy as np
 
 
-ImagesTrain = glob.glob('SamplesTestView/Train/Images/*.jpg')
-LabelsTrain = glob.glob('SamplesTestView/Train/Labels/*.jpg')
+ImagesTrain = glob.glob('SampleTestView/Train/Images/*.png')
+LabelsTrain = glob.glob('SampleTestView/Train/Labels/*.png')
 
-ImagesVal = glob.glob('SamplesTestView/Validation/Images/*.jpg')
-LabelsVal = glob.glob('SamplesTestView/Validation/Labels/*.jpg')
+ImagesVal = glob.glob('SampleTestView/Test/Images/*.png')
+LabelsVal = glob.glob('SampleTestView/Test/Labels/*.png')
 
 print(ImagesTrain[37] + ' == '+ LabelsTrain[37])
 print('This ^ should be the same.')
@@ -27,7 +28,7 @@ y_all_val = np.zeros((len(ImagesVal), 256, 256, 1))
 
 
 for i, imageFile in enumerate(ImagesTrain):
-    
+       
     image = imageio.imread(imageFile)
 
     image = np.reshape(image, (256, 256, 3)) 
@@ -117,7 +118,7 @@ train_x = x_all_train
 val_x = x_all_val
 train_y = y_all_train
 val_y = y_all_val
-epochs = 1000
+epochs = 1500
 n = 30
 x = 0
 
