@@ -11,14 +11,17 @@ import imageio
 import numpy as np
 
 
-ImagesTrain = glob.glob('SampleTestView/Train/Images/*.png')
-LabelsTrain = glob.glob('SampleTestView/Train/Labels/*.png')
+ImagesTrain = glob.glob('TrainSet/Train/Images/*.png')
+LabelsTrain = glob.glob('TrainSet/Train//Labels/*.png')
 
-ImagesVal = glob.glob('SampleTestView/Test/Images/*.png')
-LabelsVal = glob.glob('SampleTestView/Test/Labels/*.png')
+ImagesVal = glob.glob('TrainSet/Test/Images/*.png')
+LabelsVal = glob.glob('TrainSet/Test/Labels/*.png')
 
 print(ImagesTrain[37] + ' == '+ LabelsTrain[37])
-print('This ^ should be the same.')
+print('1 This ^ should be the same.')
+
+print(ImagesTrain[100] + ' == '+ LabelsTrain[100])
+print('2 This ^ should be the same.')
 
 x_all_train = np.zeros((len(ImagesTrain), 256, 256, 3))
 y_all_train = np.zeros((len(ImagesTrain), 256, 256, 1))
