@@ -20,7 +20,7 @@ y_all_train = np.zeros((len(ImageTest), 256, 256, 1))
 for i, imageFile in enumerate(ImageTest):
     label = imageio.imread(ImagesLabel[i])
     label = np.reshape(label[:,:,0], (256, 256, 1))
-    label = label > 0.1
+    label = label > 127
     y_all_train[i, :,:,:] = label
 
 model = tf.keras.models.load_model('model.h5')
@@ -37,7 +37,7 @@ save_dir = 'Result/'
 for i, imageFile in enumerate(ImageTest):
     
     image = imageio.imread(imageFile)
-    folder_1,folder2,folder3,imageName = imageFile.split("/")
+    folder_1,imageName = imageFile.split("/")
     image = np.reshape(image, (1, 256, 256, 3))
     image = image / 255.
    

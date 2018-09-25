@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 12 22:13:54 2018
@@ -20,7 +19,7 @@ LabelsVal = glob.glob('TrainSet/Test/Labels/*.png')
 print(ImagesTrain[37] + ' == '+ LabelsTrain[37])
 print('1 This ^ should be the same.')
 
-print(ImagesTrain[100] + ' == '+ LabelsTrain[100])
+print(ImagesVal[3] + ' == '+ LabelsVal[3])
 print('2 This ^ should be the same.')
 
 x_all_train = np.zeros((len(ImagesTrain), 256, 256, 3))
@@ -41,7 +40,7 @@ for i, imageFile in enumerate(ImagesTrain):
     
     label = np.reshape(label[:,:,0], (256, 256, 1))
     
-    label = label > 0.1
+    label = label > 127
     
     x_all_train[i, :,:,:] = image
     y_all_train[i, :,:,:] = label
@@ -57,7 +56,7 @@ for i, imageFile in enumerate(ImagesVal):
     
     label = np.reshape(label[:,:,0], (256, 256, 1))
     
-    label = label > 0.1
+    label = label > 127
     
     x_all_val[i, :,:,:] = image
     y_all_val[i, :,:,:] = label
@@ -121,7 +120,7 @@ train_x = x_all_train
 val_x = x_all_val
 train_y = y_all_train
 val_y = y_all_val
-epochs = 1500
+epochs = 30
 n = 30
 x = 0
 
